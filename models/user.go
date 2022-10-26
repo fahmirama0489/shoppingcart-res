@@ -7,11 +7,13 @@ import (
 )
 
 type User struct {
-	IdUser    int    `form:"id" json:"id" validate:"required" gorm:"PrimaryKey"`
+	Id        int    `form:"id" json:"id" validate:"required" gorm:"PrimaryKey"`
 	Name      string `form:"name" json:"name" validate:"required"`
 	Email     string `form:"email" json:"email" validate:"required"`
 	Username  string `form:"username" json:"username" validate:"required"`
 	Password  string `form:"password" json:"password" validate:"required"`
+	Cart      []*Cart
+	Transaksi []Transaksi
 	CreatedAt time.Time
 	UpdatedAt time.Time
 	DeletedAt gorm.DeletedAt `gorm:"index"`
